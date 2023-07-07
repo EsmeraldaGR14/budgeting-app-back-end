@@ -20,7 +20,7 @@ module.exports = [
   {
     id: v4(),
     itemName: "cat food",
-    amonunt: 15,
+    amount: 15,
     date: new Date(2023, 6, 7),
     from: "pet store",
     category: "pets",
