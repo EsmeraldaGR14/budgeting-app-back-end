@@ -18,7 +18,7 @@ module.exports = [
     category: "savings",
   },
   {
-    id: "3a",
+    id: v4(),
     itemName: "cat food",
     amonunt: 15,
     date: new Date(2023, 6, 7),

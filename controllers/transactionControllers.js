@@ -35,7 +35,7 @@ router.put("/:id", (req, res) => {
   const { id: transactionId } = req.params;
 
   const transactionIndex = transactionsArr.findIndex(
-    (transaction) => transaction.id === transactionId
+    (id) => id === transactionId
   );
 
   if (transactionIndex === -1) {
@@ -52,7 +52,6 @@ router.put("/:id", (req, res) => {
     //    ...transactionsArr[transactionIndex],
     //    ...req.body,
     //  };
-
     //  transactionsArr.splice(transactionIndex, 1, updatedTransaction);
   }
 });
