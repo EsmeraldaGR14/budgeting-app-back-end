@@ -34,25 +34,27 @@ router.post("/", (req, res) => {
 router.put("/:id", (req, res) => {
   const { id: transactionId } = req.params;
 
-  const transactionIndex = transactionsArr.findIndex(
-    (id) => id === transactionId
-  );
+  // const transactionIndex = transactionsArr.findIndex(
+  //   ({ id }) => id == transactionId
+  // );
+  let transaction = transactionsArr.find(({ id }) => id === transactionId);
 
-  if (transactionIndex === -1) {
+  let index = transactionsArr.indexOf(transaction);
+  if (index == -1) {
     res.redirect("/");
   } else {
-    transactionsArr[transactionIndex] = {
-      ...transactionsArr[transactionIndex],
+    transactionsArr[index] = {
+      ...transactionsArr[index],
       ...req.body,
     };
-    res.json(transactionsArr[transactionIndex]);
+    res.json(transactionsArr[index]);
     // OR
 
-    //  const updatedTransaction = {
-    //    ...transactionsArr[transactionIndex],
-    //    ...req.body,
-    //  };
-    //  transactionsArr.splice(transactionIndex, 1, updatedTransaction);
+    //   const updatedTransaction = {
+    //     ...transactionsArr[transactionIndex],
+    //     ...req.body,
+    //   };
+    //   transactionsArr.splice(transactionIndex, 1, updatedTransaction);
   }
 });
 
